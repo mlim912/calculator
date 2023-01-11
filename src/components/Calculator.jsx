@@ -53,8 +53,9 @@ const Calculator = () => {
     setIncome("0");
     setLoans("0")
   }  
+ 
 
-  // Add dynamic form fields for Loans where users can add or remove input fields dynamically 
+  // Add dynamic form fields for Loans where users can add or remove input fields dynamically (working but not implemented yet)
   const [loansList, setLoansList] = useState([{ loan: "" }]);
 
   const handleLoansChange = (e, index) => {
@@ -74,7 +75,7 @@ const Calculator = () => {
     setLoansList([...loansList, { loan: "" }]);
   }; 
 
-  //Add/remove input fields for additional incomes
+  //Add/remove input fields for additional incomes (working but not implemented yet)
   const [incomesList, setIncomesList] = useState([{ income: "" }]);
  
   const handleIncomesRemove = (index) => {
@@ -86,6 +87,27 @@ const Calculator = () => {
   const handleIncomesAdd = () => {
     incomesList([...incomesList, {incomes: "" }]);
   }; 
+
+  //Fetching results from API (working but not implemented in this project)
+  const onSubmit = async (e) => {
+    setIncome(parseInt(income1)+parseInt(income2))
+    setLiabilities(parseInt(loan)+parseInt(credit_card))
+    const post = { "total_income": parseInt(total_income),
+    "total_liabilities": parseInt(total_liabilities),
+    "deposit": parseInt(deposit)};
+    try {
+      const res = await axios.post('https://test-api-self.vercel.app/calculate', post );
+      res.headers.set("access-control-allow-origin", "*")
+      console.log(res.headers)
+      
+      setBorrowingResult(parseInt(res.data.result.borrowing))
+      setPropertyResult(res.data.result.property)    
+      console.log(res.data)
+    } catch (e) {
+      console.log(e)
+    }
+  }  
+
   
   return (
     <section id="calculator" className={`${layout.sectionReverse}, items-start` }> 
