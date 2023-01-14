@@ -1,6 +1,7 @@
 import React, { useState } from "react";  
 import styles, { layout } from "../style";
 import { options } from "../constants";  
+//import axios from "axios";
 
 const Calculator = () => { 
   const [income1, setIncome1] = useState(0);
@@ -55,58 +56,58 @@ const Calculator = () => {
   }  
  
 
-  // Add dynamic form fields for Loans where users can add or remove input fields dynamically (working but not implemented yet)
-  const [loansList, setLoansList] = useState([{ loan: "" }]);
+  // // Add dynamic form fields for Loans where users can add or remove input fields dynamically (working but not implemented yet)
+  // const [loansList, setLoansList] = useState([{ loan: "" }]);
 
-  const handleLoansChange = (e, index) => {
-    const { name, value } = e.target;
-    const list = [...loansList];
-    list[index][name] = value;
-    setLoansList(list);
-  };
+  // const handleLoansChange = (e, index) => {
+  //   const { name, value } = e.target;
+  //   const list = [...loansList];
+  //   list[index][name] = value;
+  //   setLoansList(list);
+  // };
 
-  const handleLoanRemove = (index) => {
-    const list = [...loansList];
-    list.splice(index, 1);
-    setLoansList(list);
-  };
+//   const handleLoanRemove = (index) => {
+//     const list = [...loansList];
+//     list.splice(index, 1);
+//     setLoansList(list);
+//   };
 
-  const handleLoanAdd = () => {
-    setLoansList([...loansList, { loan: "" }]);
-  }; 
+//   const handleLoanAdd = () => {
+//     setLoansList([...loansList, { loan: "" }]);
+//   }; 
 
-  //Add/remove input fields for additional incomes (working but not implemented yet)
-  const [incomesList, setIncomesList] = useState([{ income: "" }]);
+//   //Add/remove input fields for additional incomes (working but not implemented yet)
+//   const [incomesList, setIncomesList] = useState([{ income: "" }]);
  
-  const handleIncomesRemove = (index) => {
-    const list = [...incomesList];
-    list.splice(index, 1);
-    setIncomesList(list);
-  };
+//   const handleIncomesRemove = (index) => {
+//     const list = [...incomesList];
+//     list.splice(index, 1);
+//     setIncomesList(list);
+//   };
 
-  const handleIncomesAdd = () => {
-    incomesList([...incomesList, {incomes: "" }]);
-  }; 
+//   const handleIncomesAdd = () => {
+//     incomesList([...incomesList, {incomes: "" }]);
+//   }; 
 
-//Fetching results from API (working but not implemented in this project)
-const onSubmit = async (e) => {
-   setIncome(parseInt(income1)+parseInt(income2))
-   setLiabilities(parseInt(loan)+parseInt(credit_card))
-   const post = { "total_income": parseInt(total_income),
-   "total_liabilities": parseInt(total_liabilities),
-   "deposit": parseInt(deposit)};
-    try {
-      const res = await axios.post('https://test-api-self.vercel.app/calculate', post );
-      res.headers.set("access-control-allow-origin", "*")
-      console.log(res.headers)
+// //Fetching results from API (working but not implemented in this project)
+// const onSubmit = async (e) => {
+//    setIncome(parseInt(income1)+parseInt(income2))
+//    setLiabilities(parseInt(loan)+parseInt(credit_card))
+//    const post = { "total_income": parseInt(total_income),
+//    "total_liabilities": parseInt(total_liabilities),
+//    "deposit": parseInt(deposit)};
+//     try {
+//       const res = await axios.post('https://test-api-self.vercel.app/calculate', post );
+//       res.headers.set("access-control-allow-origin", "*")
+//       console.log(res.headers)
       
-      setBorrowingResult(parseInt(res.data.result.borrowing))
-      setPropertyResult(res.data.result.property)    
-      console.log(res.data)
-    } catch (e) {
-      console.log(e)
-    }
-  }  
+//       setBorrowingResult(parseInt(res.data.result.borrowing))
+//       setPropertyResult(res.data.result.property)    
+//       console.log(res.data)
+//     } catch (e) {
+//       console.log(e)
+//     }
+//   }  
 
   
   return (
