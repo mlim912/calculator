@@ -1,6 +1,7 @@
 import React, { useState } from "react";  
 import styles, { layout } from "../style";
 import { options } from "../constants";  
+import axios from "axios"
 
 const Calculator = () => { 
   const [income1, setIncome1] = useState(0);
