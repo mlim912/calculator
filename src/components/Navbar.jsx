@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { close, tellaLogo, menu } from "../assets";
+import { close, menu } from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
@@ -8,8 +8,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={tellaLogo} alt="tella" className="rounded object-cover w-20 shadow-lg drop-shadow-[0px_25px_35px_rgba(255,255,255,255)]" />
+    <nav className="w-full flex py-6 justify-between items-center navbar"> 
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (

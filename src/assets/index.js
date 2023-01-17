@@ -1,4 +1,3 @@
-import tellaLogo from "./tella-logo.png"; 
 import facebook from "./facebook.svg";
 import instagram from "./instagram.svg";
 import linkedin from "./linkedin.svg";
@@ -11,8 +10,7 @@ import calculator from "./calculator.png"
 export { 
   calculator,
   close,
-  menu,
-  tellaLogo,  
+  menu,  
   facebook,
   instagram,
   linkedin,
